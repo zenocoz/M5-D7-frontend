@@ -3,27 +3,38 @@ import React from "react";
 import { Card, Button, Col } from "react-bootstrap";
 
 import MyBadge from "./MyBadge";
-const SingleBook = (props) => {
-	const color = props.singleBook.price < 10 ? "danger" : "success";
+class SingleBook extends React.Component {
+	state = {
+		color: this.props.singleBook.price < 10 ? "danger" : "success",
+		clicked: false,
+		backgroundColor: "white",
+	};
 
-	const isClicked = props.clicked;
-
-	let clickedColor = isClicked ? "green" : "white";
-	return (
-		<Col>
-			<Card
-				onClick={() => props.onClicked}
-				style={{ width: "18rem", backgroundColor: { clickedColor } }}>
-				<Card.Img variant='top' src={props.singleBook.img} />
-				<Card.Body>
-					<Card.Title>{props.singleBook.title}</Card.Title>
-					<Card.Text>
-						<MyBadge color={color} text={props.singleBook.price} />
-					</Card.Text>
-				</Card.Body>
-			</Card>
-		</Col>
-	);
-};
+	render() {
+		return (
+			<Col>
+				<Card
+					onClick={() =>
+						this.setState({ clicked: !this.state.clicked })
+					}
+					style={{
+						width: "18rem",
+						backgroundColor: this.state.clicked && "green",
+					}}>
+					<Card.Img variant='top' src={this.props.singleBook.img} />
+					<Card.Body>
+						<Card.Title>{this.props.singleBook.title}</Card.Title>
+						<Card.Text>
+							<MyBadge
+								color={this.state.color}
+								text={this.props.singleBook.price}
+							/>
+						</Card.Text>
+					</Card.Body>
+				</Card>
+			</Col>
+		);
+	}
+}
 
 export default SingleBook;
