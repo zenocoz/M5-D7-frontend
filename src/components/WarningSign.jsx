@@ -5,7 +5,7 @@ function WarningSign(props) {
 	return (
 		<div>
 			<Alert variant={"danger"}>
-				There is no book contains {props.text}
+				There is no matching book with the search {props.text}
 			</Alert>
 		</div>
 	);

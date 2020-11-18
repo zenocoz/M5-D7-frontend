@@ -12,13 +12,14 @@ class SingleBook extends React.Component {
 
 	render() {
 		return (
-			<Col>
+			<Col className='mb-2 col-6 col-md-4'>
 				<Card
 					onClick={() =>
 						this.setState({ clicked: !this.state.clicked })
 					}
 					style={{
 						width: "18rem",
+						objectFit: "cover",
 						backgroundColor: this.state.clicked && "green",
 					}}>
 					<Card.Img variant='top' src={this.props.singleBook.img} />
