@@ -5,7 +5,7 @@ import { Card, Button, Col } from "react-bootstrap";
 import MyBadge from "./MyBadge";
 class SingleBook extends React.Component {
 	state = {
-		color: this.props.singleBook.price < 10 ? "danger" : "success",
+		color: "primary",
 		clicked: false,
 		backgroundColor: "white",
 	};
@@ -26,7 +26,11 @@ class SingleBook extends React.Component {
 						<Card.Title>{this.props.singleBook.title}</Card.Title>
 						<Card.Text>
 							<MyBadge
-								color={this.state.color}
+								color={
+									this.props.singleBook.price > 10
+										? "danger"
+										: "success"
+								}
 								text={this.props.singleBook.price}
 							/>
 						</Card.Text>
