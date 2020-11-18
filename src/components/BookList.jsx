@@ -1,7 +1,26 @@
-import React from "react"
+import React from "react";
+import SingleBook from "./SingleBook";
+import { Row } from "react-bootstrap";
+import { useState } from "react";
 
 const BookList = (props) => {
-  return {}
-}
+	// const { books } = props.books;
 
-export default BookList
+	const [selected, setSelected] = useState(false);
+
+	return (
+		// {console}
+		<Row>
+			{props.books.map((book) => (
+				<SingleBook
+					onClicked={() => setSelected(true)}
+					clicked={selected}
+					key={book.asin}
+					singleBook={book}
+				/>
+			))}
+		</Row>
+	);
+};
+
+export default BookList;

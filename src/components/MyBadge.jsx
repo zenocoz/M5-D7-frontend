@@ -1,6 +1,8 @@
-import React from "react"
+import React from "react";
+import { Badge } from "react-bootstrap";
 
-const MyBadge = ({ text, color }) => {
-  return {}
+function MyBadge(props) {
+	return <Badge variant={props.color}>${props.text}</Badge>;
 }
-export default MyBadge
+
+export default MyBadge;
