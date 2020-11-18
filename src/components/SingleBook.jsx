@@ -1,6 +1,6 @@
 import React from "react"
 
-const SingleBook = () => {
+const SingleBook = ({ book }) => {
   return console.log("SINGlE BOOK!")
 }
 
